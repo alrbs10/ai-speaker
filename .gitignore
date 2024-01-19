@@ -1,0 +1,7 @@
+*.pyc
+__pychche__
+recorded_audio
+responsed_audio
+server_uploaded
+*.json
+.env
