@@ -1,5 +1,5 @@
 from google.cloud import texttospeech
-def main(text, save_name):
+def main(text, save_path):
     # Instantiates a client
     client = texttospeech.TextToSpeechClient()
 
@@ -7,15 +7,18 @@ def main(text, save_name):
     synthesis_input = texttospeech.SynthesisInput(text=text)
 
     # Build the voice request, select the language code ("en-US") and the ssml
-    # voice gender ("neutral")
+    # voice gender ("nxxeutral")
     voice = texttospeech.VoiceSelectionParams(
-        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        language_code="ko-KR", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE
+        # language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
     )
 
     # Select the type of audio file you want returned
     audio_config = texttospeech.AudioConfig(
         audio_encoding=texttospeech.AudioEncoding.MP3
     )
+    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.LINEAR16)
+
 
     # Perform the text-to-speech request on the text input with the selected
     # voice parameters and audio file type
@@ -24,7 +27,7 @@ def main(text, save_name):
     )
 
     # The response's audio_content is binary.
-    with open(f"{save_name}.mp3", "wb") as out:
+    with open(save_path, "wb") as out:
         # Write the response to the output file.
         out.write(response.audio_content)
-        print(f'Audio content written to file "{save_name}.mp3"')
+        print(f'Audio content written to file "{save_path}"')
