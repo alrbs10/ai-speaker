@@ -56,4 +56,10 @@ Whisper is an automatic speech recognition (ASR) system trained on 680,000 hours
 - 성별을 구분하기 위해서 AI 허브의 한국어 음성을 사용하였습니다. 여자는 0 , 남자를 1로 라벨링 하였습니다.<br/>
 <img width="590" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/5619200b-e0b1-4262-8052-9b350bdbe7f5">
 
+# HW Team
+
+# Explanation for python files
+- audiolist.py: identify current audio input and output device number
+- api.py: The given Python script utilizes Google Cloud's Text-to-Speech API to convert text into speech and save it as a file.
+- finrecord.py: record audio and send it to server than get the appropriate audio file and output the audio file by speaker
 
