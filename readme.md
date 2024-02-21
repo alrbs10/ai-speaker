@@ -50,11 +50,30 @@ Whisper is an automatic speech recognition (ASR) system trained on 680,000 hours
 ## 화자 분류에 사용된 데이터셋
 - 화자를 분류할 때 있어서 데이터셋이 중요했습니다.<br/>
 - 먼저 어린아이와 성인의 화자 정보를 구분하기 위해 AI 허브의 어린이 음성 데이터셋을 사용하였습니다. 어린아이를 0 , 성인을 1로 라벨링 하였습니다.<br/>
-<img width="590" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/bc75fd33-e2ac-47a3-8c38-475429266dda">
+
+<img width="854" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/98efc24b-87f4-46b1-b84d-c4a2d4af6b73">
 
 - 더 나아가 어린아이와 성인의 화자정보만 구분하는 것에더 더 나아가 남녀의 발화정보도 구분하였습니다. <br/>
 - 성별을 구분하기 위해서 AI 허브의 한국어 음성을 사용하였습니다. 여자는 0 , 남자를 1로 라벨링 하였습니다.<br/>
-<img width="590" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/5619200b-e0b1-4262-8052-9b350bdbe7f5">
+<img width="854" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/ab8fca85-219b-481e-b68f-9c6edee931b9">
+
+## 화자 분류에 사용된 모델
+
+## model
+(openai/whisper-large) <br/>
+### feature extractor (based on cnn)
+![image](https://github.com/alrbs10/ai-speaker/assets/102707496/ed4ef235-daaa-4c72-aa8a-d11b2748467f)
+### encoder (based on transformer) 
+![image](https://github.com/alrbs10/ai-speaker/assets/102707496/ffa9f088-8a8c-4dc7-a61f-44e5f09eff1e)
+### linear classifier layer
+![image](https://github.com/alrbs10/ai-speaker/assets/102707496/19f25244-1ab3-47c7-a057-6ff9dec2a5cd)
+<br/>
+
+## model training
+finetuing whisper <br/>
+<br/>
+<img width="854" alt="image" src="https://github.com/alrbs10/ai-speaker/assets/102707496/e3e63b0b-c3b2-408a-94e1-b7db0b0583df">
+freeze model's feature extractor and encoder but train randomly initialized linear layer <br/>
 
 # HW Team
 
