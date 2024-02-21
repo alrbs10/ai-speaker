@@ -1,4 +1,8 @@
-# Server
+# 라즈베리파이를 사용한 나만의 스피커 만들기
+팀원 HW : 심하민, 성원희, 윤재선 
+팀원 SW : 지완 , 은주 , 경현
+
+#Server
 
 - listen for request(especially post request for our project)
 - when get post request at endpoint('rapa'), upload file content to /server_uploaded
@@ -22,4 +26,3 @@
 - virtual_model.py: not final model, just for brief validation for the system
 
 
-# hi
