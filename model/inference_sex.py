@@ -14,22 +14,26 @@ import torch.nn.functional as F
 import time
 import datasets
 from torch.utils.data import Dataset, DataLoader, TensorDataset, random_split
-
+import os
 from transformers import AutoModelForAudioClassification, WhisperProcessor
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="transformers")
 
 
+root_path = "/Users/shimhamin/Documents/GitHub/ai-speaker/" 
 
-class Inferencer:
+class Inferencer_sex:
   def __init__(self, device='cpu'):
     if device == 'cuda':
       assert torch.cuda.is_available()
     self.device = device
 		
 		# model 불러오기
-    model_name = 'openai/whisper-large'
+    model_name = 'openai/whisper-base'
     model = AutoModelForAudioClassification.from_pretrained(model_name)
     model.config.forced_decoder_ids = None
-    ckp_file = "whisper_finetuned_3.pth"
+    ckp_file = os.path.join(root_path, 'model',"whisper_finetuned_sex_3.pth")
+    
     model.load_state_dict(torch.load(ckp_file, map_location=torch.device('cpu')))
     self.model = model
     self.processor = WhisperProcessor.from_pretrained(model_name, language="Korean")
@@ -39,12 +43,13 @@ class Inferencer:
     sampling_rate = 16000
     data = librosa.load(data, sr=sampling_rate)[0]
     data = self.processor(data, sampling_rate=sampling_rate, return_tensor='pt').input_features
+    data = np.array(data)
     data = torch.Tensor(data)
     return data
   
   def inference(self, wav_file):
     sampling_rate = 16000 #assert
-    wav_file = self.preprocess(wav_file) #file_name으로 전달하면 tensor로 return
+    wav_file = self.preprocess(wav_file) #file_name으로 전달하면 tensor로 returns
 
     output = self.model.forward(wav_file)
     output = output[0]

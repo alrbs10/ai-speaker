@@ -20,3 +20,6 @@
 - tts.py: same as stt.py, by google, must be activated first
 - ask_gpt.py: requires extra info(=sex, age) and message from audio input which is transcripted by stt code
 - virtual_model.py: not final model, just for brief validation for the system
+
+age 0: 어린이 1: 어른
+sex 0: 여자 1: 남자
