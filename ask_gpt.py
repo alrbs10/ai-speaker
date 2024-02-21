@@ -10,7 +10,7 @@ client = OpenAI(api_key=GPT_API_KEY)
 def create_response(sex, age, request_message):
     #if(request_message == "대화를 종료합니다"):
     #   messages.clear()
-    #   return false
+    #   return 0
     #
     # messages.append(
     #     {
