@@ -5,3 +5,5 @@ responsed_audio
 server_uploaded
 *.json
 .env
+*.pth
+/temp
