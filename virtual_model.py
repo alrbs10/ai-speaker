@@ -11,11 +11,14 @@ def main(age_model, sex_model, input_audio_file_path):
     e_1 = time.time()
     print(f"STT took {e_1-s_1}sec")
     s_2 = time.time()
-    output_age, output_sex = whisper_inf(age_model, sex_model, input_audio_file_path)
+    # output_age, output_sex = whisper_inf(age_model, sex_model, input_audio_file_path)
+    output_age = age_model.inference(input_audio_file_path)
+    output_sex = sex_model.inference(input_audio_file_path)
     e_2 = time.time()
     print(f"whisper model took {e_2-s_2}sec")
+    print(output_age, output_sex)
     age = '어른' if(output_age) else '어린이'
-    sex = '남자' if output_sex else '여자'
+    sex = '남자' if (output_sex) else '여자'
     print(f"Additional Info: {sex} / {age}")
     
     s_3 = time.time()

@@ -6,3 +6,4 @@ server_uploaded
 *.json
 .env
 *.pth
+/temp
