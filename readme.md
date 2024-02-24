@@ -1,7 +1,7 @@
 # 라즈베리파이를 사용한 나만의 스피커 만들기
 팀원 HW : 심하민, 성원희, 윤재선 <br/>
-팀원 SW : 지완 , 은주 , 경현 <br/>
-[Notion] 
+팀원 SW : 박지완 , 박은주 , 남경현 <br/>
+<a href='https://elderly-podium-4c3.notion.site/4-ed35bd711dca48f5bd22625d26d42d87'>[Notion]</a>
 
 
 # Server
