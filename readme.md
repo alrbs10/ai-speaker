@@ -13,7 +13,7 @@
 - Read file from that path, and process data(model part)
 - Finally, return text answer data(Made by GPT Chat-API, propting)
 
-### <a href='./board/finrecord.py.py'>Client(Raspberry pi board)</a>
+### <a href='./board/finrecord.py'>Client(Raspberry pi board)</a>
 
 - Request some tasks to server(especially posting recorded file for our project)
 - When .wav file is recorded by user(=human) using button, it requests server to make appropriate response(=text) for that input audio, considering the user(=human)'s sex and age
